@@ -2,10 +2,6 @@
 
 A Chrome extension that lets you control multiple AI chatbots simultaneously. Test prompts across ChatGPT, Gemini, Grok, and more with one click!
 
-You can also CUSTOMIZE the tabs that get opened, send 1-many prompts, or TAB between tabs!
-
-<img width="462" height="1315" alt="letthebakeoffbegin" src="https://github.com/user-attachments/assets/6724d066-1f49-42df-8bbe-de90bcd1557f" />
-
 ![Version](https://img.shields.io/badge/version-2.6-blue)
 ![Chrome Extension](https://img.shields.io/badge/chrome-extension-brightgreen)
 
@@ -13,6 +9,10 @@ You can also CUSTOMIZE the tabs that get opened, send 1-many prompts, or TAB bet
 
 ### 🚀 Launch All AI Tabs at Once
 Open all your favorite AI chatbots (ChatGPT, Gemini, Grok, etc.) with a single click.
+
+💡 You can also CUSTOMIZE the tabs that get opened, send 1-many prompts, and TAB between tabs quickly with CTRL+1, CTRL+2, etc.!
+
+<img width="462" height="1315" alt="letthebakeoffbegin" src="https://github.com/user-attachments/assets/6724d066-1f49-42df-8bbe-de90bcd1557f" />
 
 ### 💥 Blast Prompts to Multiple AIs
 Type your prompt once and send it to all AI chatbots simultaneously:
