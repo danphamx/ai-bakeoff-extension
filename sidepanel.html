@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 12px; background: #f8fafc; color: #334155; }
+    
+    /* Header Container */
+    .header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: flex-start; 
+      border-bottom: 2px solid #e2e8f0; 
+      padding-bottom: 12px; 
+      margin-bottom: 15px; 
+    }
+
+    h3 { 
+      margin: 0; 
+      color: #1e293b; 
+      font-size: 15px; 
+      line-height: 1.4;
+      display: flex; 
+      align-items: center; 
+      gap: 10px; 
+      font-weight: 700;
+    }
+
+    /* THE ANIMATION MAGIC */
+    .shiny-text {
+      background: linear-gradient(
+        to right, 
+        #1e293b 0%, 
+        #1e293b 40%, 
+        #3b82f6 50%, 
+        #1e293b 60%, 
+        #1e293b 100%
+      );
+      background-size: 200% auto;
+      
+      /* Start transparent to show gradient */
+      color: #1e293b;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      display: inline-block;
+      
+      /* Run 3 times, then hold the final state */
+      animation: 
+        shine 3s linear 3 forwards, 
+        wave 3s ease-in-out 3 forwards;
+    }
+
+    /* Animation 1: Shine - Ends with solid color */
+    @keyframes shine {
+      0% { background-position: -200% center; -webkit-text-fill-color: transparent; }
+      80% { background-position: 200% center; -webkit-text-fill-color: transparent; }
+      100% { background-position: 200% center; -webkit-text-fill-color: #1e293b; } /* Settle to Black */
+    }
+
+    /* Animation 2: Wave - Ends stable */
+    @keyframes wave {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-2px) rotate(-1deg); }
+      75% { transform: translateY(1px) rotate(1deg); }
+    }
+
+    /* The Grid */
+    .grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 20px; }
+    .btn-instance { display: flex; align-items: center; justify-content: space-between; height: 38px; background: white; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0 10px; cursor: pointer; font-size: 13px; font-weight: 500; color: #475569; }
+    .btn-instance:hover { background: #f1f5f9; border-color: #94a3b8; }
+    kbd { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px; padding: 2px 6px; font-family: monospace; font-size: 10px; color: #334155; }
+
+    /* Omni Bar */
+    .omni-container { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    textarea { width: 100%; height: 70px; border-radius: 6px; border: 1px solid #cbd5e1; padding: 8px; font-family: inherit; font-size: 12px; resize: none; box-sizing: border-box; }
+    textarea:focus { outline: 2px solid #3b82f6; border-color: transparent; }
+    
+    .blast-row { display: flex; gap: 8px; margin-top: 8px; }
+    
+    /* Standard Blast Button */
+    .btn-blast { flex: 1; background: #3b82f6; color: white; border: none; padding: 8px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 11px; text-transform: uppercase; }
+    .btn-blast:hover { background: #2563eb; }
+    
+    /* Sparkle/Send Button */
+    .btn-sparkle { 
+      flex: 0 0 100px; /* Wider to fit text */
+      background: #8b5cf6; 
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .btn-sparkle:hover { background: #7c3aed; }
+
+    .launch-btn { width: 100%; margin-bottom: 15px; padding: 10px; background: #10b981; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+    .launch-btn:hover { background: #059669; }
+
+    /* Advanced Zippy */
+    details { margin-top: 20px; border-top: 1px solid #e2e8f0; padding-top: 10px; }
+    summary { cursor: pointer; font-size: 12px; font-weight: 600; color: #64748b; user-select: none; }
+    .advanced-content { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+    
+    .roster-edit-row { display: flex; gap: 5px; margin-bottom: 5px; }
+    .roster-input { flex: 1; padding: 5px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 11px; }
+    .save-btn { background: #3b82f6; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; }
+    
+    .setting-check { font-size: 12px; display: flex; align-items: center; gap: 8px; color: #475569; }
+    
+    /* Links */
+    .bookmark-link { font-size: 11px; color: #3b82f6; text-decoration: none; display: block; }
+    .bookmark-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>
+      <img src="cupcake.png" width="32" height="32" onerror="this.style.display='none'"> <img src="cupcake.png" width="32" height="32" onerror="this.style.display='none'">  <img src="cupcake.png" width="32" height="32" onerror="this.style.display='none'"> 
+      <span class="shiny-text">Let the bake-off begin!<br>Click LAUNCH TABS (below) to get started:</span>
+    </h2>
+    </div>
+  
+  <button id="launch-btn" class="launch-btn">Launch Tabs</button>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="omni-container">
+    <label style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Omni Prompt</label>
+    <textarea id="omni-input" placeholder="Type here..."></textarea>
+    <div class="blast-row">
+      <button id="blast-btn" class="btn-blast">Blast All</button>
+      <button id="blast-enter-btn" class="btn-blast btn-sparkle" title="Blast & Auto-Send">BLAST<br>& SEND</button>
+    </div>
+  </div>
+
+  <details>
+    <summary>Advanced Settings</summary>
+    <div class="advanced-content">
+      
+      <div style="font-size: 11px; font-weight: bold; margin-bottom:5px;">EDIT ROSTER URLs</div>
+      <div id="roster-editor"></div>
+      <button id="save-roster-btn" class="save-btn">Save Roster Locally</button>
+
+      <div style="margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px;">
+        <label class="setting-check">
+          <input type="checkbox" id="chk-disable-reminder"> Disable 'Open Me' Reminder
+        </label>
+      </div>
+
+      <div style="margin-top: 5px; display: flex; flex-direction: column; gap: 8px;">
+        <a href="chrome-open-split-view.webp" target="_blank" class="bookmark-link">How to Split View in Chrome</a>
+        
+        <a href="#" id="open-window-btn" class="bookmark-link">Open as Popup Window</a>
+      </div>
+
+    </div>
+  </details>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
