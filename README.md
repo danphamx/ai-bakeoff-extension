@@ -149,7 +149,7 @@ MIT License - feel free to use and modify as you wish!
 
 **Dan Pham**
 - GitHub: [@danphamx](https://github.com/danphamx)
-- Medium: [Create Digital Gardens](https://medium.com/@danpham)
+- Medium: [Digital Gardens Blog]([https://medium.com/@danpham](https://medium.com/create-digital-gardens-with-ai/i-built-my-own-chrome-extension-to-compare-ai-chat-bot-responses-39cfa64d2650?source=user_profile_page---------4-------------2391fc6891a7----------------------))
 
 ## Support
 
